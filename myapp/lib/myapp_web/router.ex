@@ -18,6 +18,8 @@ defmodule MyappWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :home
+    get "/learn", PageController, :learn
+    post "/learn/pipeline", PageController, :run_pipeline
   end
 
   # Other scopes may use custom stacks.
