@@ -12,6 +12,32 @@ defmodule MyappWeb.PageControllerTest do
 
     assert body =~ "手を動かして学ぶ Elixir + Phoenix"
     assert body =~ "演習: パイプラインを試す"
+    assert body =~ "LiveView 版へ"
+    assert body =~ "文法コース一覧へ"
+  end
+
+  test "GET /learn/syntax", %{conn: conn} do
+    conn = get(conn, ~p"/learn/syntax")
+    body = html_response(conn, 200)
+
+    assert body =~ "Elixir 基本文法コース"
+    assert body =~ "Step 1/6"
+  end
+
+  test "GET /learn/syntax/:id", %{conn: conn} do
+    conn = get(conn, ~p"/learn/syntax/01-values-and-types")
+    body = html_response(conn, 200)
+
+    assert body =~ "値と型の基本"
+    assert body =~ "Step 1/6"
+    assert body =~ "用語と概念"
+    assert body =~ "アトム (`:ok`)"
+  end
+
+  test "GET /learn/syntax/:id redirects when unknown", %{conn: conn} do
+    conn = get(conn, ~p"/learn/syntax/not-found")
+
+    assert redirected_to(conn) == ~p"/learn/syntax"
   end
 
   test "POST /learn/pipeline success", %{conn: conn} do

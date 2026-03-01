@@ -12,7 +12,11 @@
             手を動かして学ぶ Elixir + Phoenix
           </h1>
         </div>
-        <.button navigate={~p"/"}>トップへ戻る</.button>
+        <div class="flex flex-wrap gap-2">
+          <.button navigate={~p"/learn/syntax"}>文法コース一覧へ</.button>
+          <.button navigate={~p"/learn/live"} variant="primary">LiveView 版へ</.button>
+          <.button navigate={~p"/"}>トップへ戻る</.button>
+        </div>
       </div>
 
       <p class="mt-5 max-w-3xl text-sm leading-7 text-slate-600 sm:text-base">
@@ -53,7 +57,7 @@
           <pre
             class="mt-4 overflow-x-auto rounded-xl bg-slate-950 p-4 text-xs leading-6 text-cyan-200"
             phx-no-curly-interpolation
-          ><code>{lesson.snippet}</code></pre>
+          ><code><%= lesson.snippet %></code></pre>
         </article>
       <% end %>
     </section>
