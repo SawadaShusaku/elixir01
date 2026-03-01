@@ -1,5 +1,4 @@
-<Layouts.flash_group flash={@flash} />
-
+<Layouts.app flash={@flash}>
 <main class="min-h-screen bg-[radial-gradient(circle_at_20%_10%,#faf5ff,transparent_40%),radial-gradient(circle_at_80%_20%,#ecfeff,transparent_45%),linear-gradient(180deg,#fff7ed,#ffffff)] px-4 py-10 sm:px-8 lg:px-12">
   <section class="mx-auto max-w-6xl">
     <div class="rounded-3xl border border-orange-100 bg-white/85 p-6 shadow-xl shadow-orange-100 backdrop-blur sm:p-10">
@@ -15,6 +14,7 @@
         <div class="flex flex-wrap gap-2">
           <.button navigate={~p"/learn/syntax"}>文法コース一覧へ</.button>
           <.button navigate={~p"/learn/live"} variant="primary">LiveView 版へ</.button>
+          <.button navigate={~p"/learn/dynamic"} variant="secondary">Dynamic Dashboard</.button>
           <.button navigate={~p"/"}>トップへ戻る</.button>
         </div>
       </div>
@@ -102,3 +102,4 @@
     </section>
   </section>
 </main>
+</Layouts.app>

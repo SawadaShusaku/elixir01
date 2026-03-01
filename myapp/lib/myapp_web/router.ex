@@ -23,6 +23,7 @@ defmodule MyappWeb.Router do
     get "/learn/syntax", PageController, :syntax_index
     get "/learn/syntax/:id", PageController, :syntax_show
     live "/learn/live", LearnLive
+    live "/learn/dynamic", LearnLive, :dynamic
   end
 
   # Other scopes may use custom stacks.
