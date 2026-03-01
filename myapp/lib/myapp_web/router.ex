@@ -20,6 +20,9 @@ defmodule MyappWeb.Router do
     get "/", PageController, :home
     get "/learn", PageController, :learn
     post "/learn/pipeline", PageController, :run_pipeline
+    get "/learn/syntax", PageController, :syntax_index
+    get "/learn/syntax/:id", PageController, :syntax_show
+    live "/learn/live", LearnLive
   end
 
   # Other scopes may use custom stacks.

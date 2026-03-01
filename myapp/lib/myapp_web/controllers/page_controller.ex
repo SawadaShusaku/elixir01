@@ -39,4 +39,32 @@ defmodule MyappWeb.PageController do
       result: {:error, "入力欄に数値を入れて送信してください。"}
     )
   end
+
+  def syntax_index(conn, _params) do
+    lessons = Learning.syntax_lessons()
+
+    render(conn, :syntax_index,
+      lessons: lessons,
+      total_lessons: length(lessons)
+    )
+  end
+
+  def syntax_show(conn, %{"id" => id}) do
+    case Learning.syntax_lesson(id) do
+      nil ->
+        conn
+        |> put_flash(:error, "指定したレッスンは見つかりませんでした。")
+        |> redirect(to: ~p"/learn/syntax")
+
+      lesson ->
+        {previous_lesson, next_lesson} = Learning.syntax_neighbors(id)
+
+        render(conn, :syntax_show,
+          lesson: lesson,
+          previous_lesson: previous_lesson,
+          next_lesson: next_lesson,
+          total_lessons: length(Learning.syntax_lessons())
+        )
+    end
+  end
 end

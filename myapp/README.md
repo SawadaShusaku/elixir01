@@ -5,8 +5,11 @@
 このプロジェクトには、Elixir 学習用のページを追加しています。
 
 - 学習ページ: `http://localhost:4000/learn`
+- LiveView 学習ページ: `http://localhost:4000/learn/live`
+- 文法コース一覧: `http://localhost:4000/learn/syntax`
 - 実装モジュール: `lib/myapp/learning.ex`
 - テンプレート: `lib/myapp_web/controllers/page_html/learn.html.heex`
+- LiveView: `lib/myapp_web/live/learn_live.ex`
 
 ### 学べる内容
 
@@ -14,6 +17,8 @@
 - Pipe Operator (`|>`)
 - Immutability
 - フォーム送信で試せるパイプライン演習
+- LiveView でリアルタイム更新される演習（`phx-change` / `phx-submit`）
+- 順番に進める基本文法コース（Step 1 〜 Step 6）
 
 ### 学習ページを拡張するには
 
